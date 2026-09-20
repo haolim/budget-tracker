@@ -1,0 +1,77 @@
+/* Summary.module.css */
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Balance sits alone and large. It's the one thing you look at first. */
+.balance {
+  padding: var(--gap-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.balanceLabel {
+  font-size: var(--size-sm);
+  color: var(--muted);
+}
+
+.balanceValue {
+  margin-top: var(--gap-1);
+  font-size: var(--size-2xl);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+/* Add alongside .balanceValue when the balance drops below zero. */
+.negative {
+  color: var(--expense);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cell {
+  padding: var(--gap-4) var(--gap-5);
+}
+
+.cell + .cell {
+  border-left: 1px solid var(--line);
+}
+
+.cellLabel {
+  font-size: var(--size-sm);
+  color: var(--muted);
+}
+
+.cellValue {
+  margin-top: var(--gap-1);
+  font-size: var(--size-lg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.income {
+  color: var(--income);
+}
+
+.expense {
+  color: var(--expense);
+}
+
+@media (max-width: 420px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .cell + .cell {
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+}
