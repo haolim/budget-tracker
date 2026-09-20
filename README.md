@@ -1,16 +1,30 @@
-# React + Vite
+# Budget Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React app for tracking income and expenses, with role-based access.
 
-Currently, two official plugins are available:
+Two contexts to hold the states: one for authentication and one for the transactions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The logged-in user is kept in `localStorage` so a logged in user survives a page refresh.
 
-## React Compiler
+Built for the assignment **Advanced State Management**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Admin**
 
-## Expanding the ESLint configuration
+![Budget Tracker, admin view](./screenshot-admin.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Viewer**
+
+![Budget Tracker, viewer view](./screenshot-viewer.png)
+
+## Features
+
+- **Login:** a form with username and password, validated against two mock users (`admin` and `viewer`). A failed attempt shows "Incorrect username or password." and leaves the form as it was. Password is not checked and can be any value.
+- **Session persistence:** the logged-in user is saved to `localStorage` on login and read back on mount. Logging out clears the stored user.
+- **Loading state:** a neutral "Loading..." message replaces the app while `localStorage` is being checked.
+- **Header:** shows the app name, the logged-in user's name, a role badge, and a Log Out button.
+- **Summary:** total balance, total income, and total expenses, each formatted as SGD currency. The totals are calculated from the full transaction list, so they do not change when a filter is applied. Income and Expense is coloured differently.
+- **Status filter:** All / Income / Expense. The filtered list is derived during render from the transactions array and the current filter. The active button is highlighted.
+- **Transaction list:** each row shows the description, a type badge, and the amount, with a coloured stripe on the left edge marking income (green) or expense (red). An empty list shows a message appropriate for the current the filter.
+- **Add transactions:** a controlled form with description, amount, and a type selector with two options (Income or Expense). The amount is validated before it is dispatched, and the form clears once the transaction is added.
+- **Delete transactions:** each row has a Delete button that removes that transaction by id.
+- **Role-based access:** the Add form and the Delete buttons are only rendered for admin users. Viewers see the same data with no way to change it.
