@@ -1,0 +1,108 @@
+/* Login.module.css */
+
+.screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--gap-4);
+}
+
+.card {
+  width: 100%;
+  max-width: 22rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--gap-6) var(--gap-5);
+}
+
+.title {
+  font-size: var(--size-xl);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin-top: var(--gap-2);
+  color: var(--muted);
+  font-size: var(--size-sm);
+}
+
+.form {
+  margin-top: var(--gap-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-1);
+}
+
+.label {
+  font-size: var(--size-sm);
+  font-weight: 550;
+  color: var(--ink-soft);
+}
+
+.input {
+  padding: 0.6rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 120ms ease;
+}
+
+.input:hover {
+  border-color: var(--ink-soft);
+}
+
+.input:focus {
+  border-color: var(--focus);
+}
+
+/* Toggle this on the input when validation fails. */
+.inputError {
+  border-color: var(--expense);
+}
+
+.submit {
+  margin-top: var(--gap-1);
+  padding: 0.65rem 1rem;
+  background: var(--ink);
+  color: var(--surface);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  font-weight: 550;
+  transition: background-color 120ms ease;
+}
+
+.submit:hover {
+  background: var(--ink-soft);
+}
+
+.error {
+  color: var(--expense);
+  font-size: var(--size-sm);
+}
+
+/* Small footnote listing the demo usernames. */
+.hint {
+  margin-top: var(--gap-5);
+  padding-top: var(--gap-4);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--size-xs);
+}
+
+/* Stretch goal: the "Remember me" checkbox row. */
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-2);
+  font-size: var(--size-sm);
+  color: var(--ink-soft);
+}
