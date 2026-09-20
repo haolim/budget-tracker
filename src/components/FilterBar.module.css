@@ -1,0 +1,57 @@
+/* FilterBar.module.css */
+
+.bar {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  gap: 2px;
+}
+
+.button {
+  padding: 0.35rem 0.9rem;
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  border-radius: 4px;
+  font-size: var(--size-sm);
+  font-weight: 500;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.button:hover {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* Apply together with .button on whichever filter is active.
+   Also set aria-pressed="true" on that button so screen readers
+   get the same information the colour is carrying. */
+.active {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.active:hover {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+/* Optional count shown next to the active filter, e.g. "3 shown". */
+.count {
+  margin-left: var(--gap-3);
+  align-self: center;
+  color: var(--muted);
+  font-size: var(--size-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--gap-3);
+}
