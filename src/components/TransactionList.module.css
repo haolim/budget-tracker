@@ -1,0 +1,116 @@
+/* TransactionList.module.css */
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-3);
+  padding: var(--gap-3) var(--gap-4);
+}
+
+.row + .row {
+  border-top: 1px solid var(--line);
+}
+
+/* A 3px edge marks income or expense without needing an icon.
+   Pair with .stripeIncome or .stripeExpense. */
+.stripe {
+  align-self: stretch;
+  width: 3px;
+  flex: none;
+  border-radius: 2px;
+}
+
+.stripeIncome {
+  background: var(--income);
+}
+
+.stripeExpense {
+  background: var(--expense);
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.description {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.type {
+  display: inline-block;
+  margin-top: 2px;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  font-size: var(--size-xs);
+}
+
+.typeIncome {
+  background: var(--income-bg);
+  color: var(--income);
+}
+
+.typeExpense {
+  background: var(--expense-bg);
+  color: var(--expense);
+}
+
+.amount {
+  flex: none;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.amountIncome {
+  color: var(--income);
+}
+
+.amountExpense {
+  color: var(--expense);
+}
+
+.delete {
+  flex: none;
+  padding: 0.25rem 0.6rem;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: var(--size-sm);
+  transition:
+    color 120ms ease,
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+
+.delete:hover {
+  color: var(--expense);
+  border-color: var(--expense);
+  background: var(--expense-bg);
+}
+
+/* Shown when the current filter matches nothing. */
+.empty {
+  padding: var(--gap-6) var(--gap-4);
+  text-align: center;
+  color: var(--muted);
+  font-size: var(--size-sm);
+}
+
+@media (max-width: 420px) {
+  .row {
+    padding: var(--gap-3);
+    gap: var(--gap-2);
+  }
+}
